@@ -1,0 +1,4 @@
+tk
+requests
+watchdog
+pyyaml
