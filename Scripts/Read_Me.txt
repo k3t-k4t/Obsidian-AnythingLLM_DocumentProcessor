@@ -2,12 +2,12 @@
 
 #How To Use (If you haven't already, follow the instructions in the sections below this one, then come back when its all set up)
 
-1) Once Fully configured press Start Pipeline you should see something like
+1) Once Fully configured press Start Pipeline you should see something like:
 
-	Starting pipeline scripts...
-	[watch_anythingllm.py] Watching AnythingLLM storage: [your storage path]
-	[watch_anythingllm.py] Outputting Markdown to: [vault path]/01-intake
-	[intake_bot.py] 13:59:13  INFO     Watching [vault path]/01-intake
+		Starting pipeline scripts...
+		[watch_anythingllm.py] Watching AnythingLLM storage: [your storage path]
+		[watch_anythingllm.py] Outputting Markdown to: [vault path]/01-intake
+		[intake_bot.py] 13:59:13  INFO     Watching [vault path]/01-intake
 
 2) Starting the Process
 	2.1)Either Drop a file directly into the Intake folder in Obsidian if it is a markdown file
@@ -23,13 +23,13 @@
 
 	This will also remove the inputted file, so it is only inputted once, simply exit the upload interface and when you reopen the interface you won't see anything 	in the upload portion
 
-3) Simply wait for the document to process (should take a couple minutes, you should see the following in the app console when it is complete
+3) Simply wait for the document to process (should take a couple minutes, you should see the following in the app console when it is complete:
 
-	[intake_bot.py] 14:07:34  WARNING  Attempt 1 failed: Model returned an empty response
-	[intake_bot.py] 14:08:32  INFO     Validation OK (attempt 2)
-	[intake_bot.py] 14:08:32  INFO     Wrote note: [note name]
-	[intake_bot.py] 14:08:35  INFO     Archived original \u2192 20261110-140835-[note-name]
-	[watch_anythingllm.py] Ignoring Markdown upload (loop prevention): [note-name]-c5b91ecb-d2b6-4bb2-91f4-35d8865a6545.json
+		[intake_bot.py] 14:07:34  WARNING  Attempt 1 failed: Model returned an empty response
+		[intake_bot.py] 14:08:32  INFO     Validation OK (attempt 2)
+		[intake_bot.py] 14:08:32  INFO     Wrote note: [note name]
+		[intake_bot.py] 14:08:35  INFO     Archived original \u2192 20261110-140835-[note-name]
+		[watch_anythingllm.py] Ignoring Markdown upload (loop prevention): [note-name]-c5b91ecb-d2b6-4bb2-91f4-35d8865a6545.json
 
 4) You should now be able to see the processed file in the 01-notes folder (to find the name, check the note-name in the app console)
 Make sure to check the processed note for it's validity and that it has the correct tags.
