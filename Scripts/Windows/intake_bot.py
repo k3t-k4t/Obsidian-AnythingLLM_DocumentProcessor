@@ -23,7 +23,7 @@ except FileNotFoundError:
     exit(1)
 
 VAULT_PATH        = Path(CONFIG.get("vault_path", ""))
-INTAKE_FOLDER     = VAULT_PATH / "01-intake"
+INTAKE_FOLDER     = VAULT_PATH / "00-intake"
 PROCESSED_FOLDER  = VAULT_PATH / "02-processed"
 FAILED_FOLDER     = VAULT_PATH / "03-failed"
 NOTES_FOLDER      = VAULT_PATH / "01-notes"

@@ -135,7 +135,7 @@ class PipelineApp:
 
         # Use sys.executable to ensure we use the same Python interpreter
         process = subprocess.Popen(
-            ["python", "-u", str(script_path)],
+            ["python3", "-u", str(script_path)],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,

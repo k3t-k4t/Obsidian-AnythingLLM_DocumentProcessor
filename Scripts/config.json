@@ -1,7 +1,7 @@
 {
-    "vault_path": "",
-    "docs_folder": "",
+    "vault_path": "D:\\Obsidian\\Vaults\\Test Vault",
+    "docs_folder": "C:\\Users\\isaac\\AppData\\Roaming\\anythingllm-desktop\\storage\\documents\\custom-documents",
     "anythingllm_url": "http://localhost:3001",
-    "api_key": "",
-    "workspace_slug": ""
+    "api_key": "23F80MY-FT3M6ZJ-N3XR6BQ-71V64W5",
+    "workspace_slug": "my-workspace"
 }

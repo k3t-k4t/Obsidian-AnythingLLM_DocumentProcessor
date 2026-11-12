@@ -16,7 +16,7 @@ except FileNotFoundError:
     exit(1)
 
 ANYTHINGLLM_DOCS_FOLDER = Path(CONFIG.get("docs_folder", ""))
-INTAKE_FOLDER           = Path(CONFIG.get("vault_path", "")) / "01-intake"
+INTAKE_FOLDER           = Path(CONFIG.get("vault_path", "")) / "00-intake"
 
 ANYTHINGLLM_URL         = CONFIG.get("anythingllm_url", "http://localhost:3001")
 API_KEY                 = CONFIG.get("api_key", "")
