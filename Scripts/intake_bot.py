@@ -7,7 +7,6 @@ import time
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
-
 import requests
 import yaml
 from watchdog.events import FileSystemEventHandler
@@ -17,47 +16,33 @@ from watchdog.observers import Observer
 CONFIG_PATH = Path(__file__).parent / "config.json"
 try:
     with open(CONFIG_PATH, "r") as f:
-        CONFIG = json.load(f)
+        CONFIG_DATA = json.load(f)
 except FileNotFoundError:
     print("ERROR: config.json not found. Please run app.py to set up your configuration.")
     exit(1)
 
-VAULT_PATH        = Path(CONFIG.get("vault_path", ""))
-INTAKE_FOLDER     = VAULT_PATH / "01-intake"
+ACTIVE_PROFILE = CONFIG_DATA.get("active_profile", "Default")
+PROFILE = CONFIG_DATA.get("profiles", {}).get(ACTIVE_PROFILE, {})
+
+VAULT_PATH        = Path(PROFILE.get("vault_path", ""))
+INTAKE_FOLDER     = VAULT_PATH / "00-intake"
 PROCESSED_FOLDER  = VAULT_PATH / "02-processed"
 FAILED_FOLDER     = VAULT_PATH / "03-failed"
 NOTES_FOLDER      = VAULT_PATH / "01-notes"
-REVIEW_FOLDER     = VAULT_PATH / "04-review"  
+REVIEW_FOLDER     = VAULT_PATH / "04-review"
 
-ANYTHINGLLM_URL   = CONFIG.get("anythingllm_url", "http://localhost:3001")
-API_KEY           = CONFIG.get("api_key", "")
-WORKSPACE_SLUG    = CONFIG.get("workspace_slug", "")
+ANYTHINGLLM_URL   = PROFILE.get("anythingllm_url", "http://localhost:3001")
+API_KEY           = PROFILE.get("api_key", "")
+WORKSPACE_SLUG    = PROFILE.get("workspace_slug", "")
+
+AVAILABLE_TAGS    = PROFILE.get("tags", [])
+EXAMPLES          = PROFILE.get("examples", [])
 
 SUPPORTED_EXTS    = {".md", ".txt"}
 VALID_STATUS      = {"inbox", "draft", "active", "done", "archived"}
-
 MAX_RETRIES       = 2
 MAX_DOC_CHARS     = 60_000
 DELETE_UPLOAD_AFTER_SUCCESS = True
-
-AVAILABLE_TAGS = [
-    "People", "Admin", "Research", "Overview", "Stub",
-    "Cardiology", "InformationArchitecture", "InformationProduct", "Investigation",
-    "DiseasePathway", "GraphNavigation", "System", "CardiacImaging", 
-    "Representation", "Electrocardiography", "Echocardiography", "GraphSupporting",
-    "Haemodynamics", "InterventionPathway", "Presentation", "ArchitecturePrinciple",
-    "ClinicalAssessment", "CardiacDevices", "ClinicalDecision", "ClinicalManagement",
-    "ClinicalProcedure", "ExercisePhysiology", "Genetics", "Geometry",
-    "ImplantsAndDevices", "InvasiveAssessment", "LaboratoryMedicine",
-    "LongitudinalAssessment", "MyocardialFunction", "NHS", "NuclearMedicine",
-    "PulmonaryHypertension", "ValvularHeartDisease", "VentricularFunction"
-]
-
-EXAMPLES = [
-    "01-notes/Cardiac CT.md",
-    "01-notes/Coronary Artery Disease.md",
-    "01-notes/Catheter Ablation.md"
-]
 
 logging.basicConfig(
     level=logging.INFO,

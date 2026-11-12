@@ -1,7 +1,80 @@
 {
-    "vault_path": "D:\\Obsidian\\Vaults\\Test Vault",
-    "docs_folder": "C:\\Users\\isaac\\AppData\\Roaming\\anythingllm-desktop\\storage\\documents\\custom-documents",
-    "anythingllm_url": "http://localhost:3001",
-    "api_key": "23F80MY-FT3M6ZJ-N3XR6BQ-71V64W5",
-    "workspace_slug": "my-workspace"
+    "active_profile": "DNDVault",
+    "profiles": {
+        "Default": {
+            "vault_path": "D:\\Obsidian\\Vaults\\Test Vault",
+            "docs_folder": "C:\\Users\\isaac\\AppData\\Roaming\\anythingllm-desktop\\storage\\documents\\custom-documents",
+            "anythingllm_url": "http://localhost:3001",
+            "api_key": "23F80MY-FT3M6ZJ-N3XR6BQ-71V64W5",
+            "workspace_slug": "my-workspace",
+            "tags": [
+                "People",
+                "Admin",
+                "Research",
+                "Overview",
+                "Stub",
+                "Cardiology",
+                "InformationArchitecture",
+                "InformationProduct",
+                "Investigation",
+                "DiseasePathway",
+                "GraphNavigation",
+                "System",
+                "CardiacImaging",
+                "Representation",
+                "Electrocardiography",
+                "Echocardiography",
+                "GraphSupporting",
+                "Haemodynamics",
+                "InterventionPathway",
+                "Presentation",
+                "ArchitecturePrinciple",
+                "ClinicalAssessment",
+                "CardiacDevices",
+                "ClinicalDecision",
+                "ClinicalManagement",
+                "ClinicalProcedure",
+                "ExercisePhysiology",
+                "Genetics",
+                "Geometry",
+                "ImplantsAndDevices",
+                "InvasiveAssessment",
+                "LaboratoryMedicine",
+                "LongitudinalAssessment",
+                "MyocardialFunction",
+                "NHS",
+                "NuclearMedicine",
+                "PulmonaryHypertension",
+                "ValvularHeartDisease",
+                "VentricularFunction"
+            ],
+            "examples": [
+                "01-notes/Cardiac CT.md",
+                "01-notes/Coronary Artery Disease.md",
+                "01-notes/Catheter Ablation.md"
+            ]
+        },
+        "DNDVault": {
+            "vault_path": "D:\\Obsidian\\Vaults\\Dungeons And Dragons",
+            "docs_folder": "C:\\Users\\isaac\\AppData\\Roaming\\anythingllm-desktop\\storage\\documents\\DND Workspace Import",
+            "anythingllm_url": "http://localhost:3001",
+            "api_key": "23F80MY-FT3M6ZJ-N3XR6BQ-71V64W5",
+            "workspace_slug": "dnd-workspace",
+            "tags": [
+                "CurseOfStrahd",
+                "PlayerCharacter",
+                "CircleOfSpores",
+                "Cleric",
+                "Druid",
+                "Elf",
+                "Myconid",
+                "Order Domain",
+                "CollegeOfSpirits"
+            ],
+            "examples": [
+                "01-notes/Oricel The Priest Of Decay.md",
+                "01-notes/Dacien The Judge.md"
+            ]
+        }
+    }
 }

@@ -10,17 +10,22 @@ from watchdog.events import FileSystemEventHandler
 CONFIG_PATH = Path(__file__).parent / "config.json"
 try:
     with open(CONFIG_PATH, "r") as f:
-        CONFIG = json.load(f)
+        CONFIG_DATA = json.load(f)
 except FileNotFoundError:
     print("ERROR: config.json not found. Please run app.py to set up your configuration.")
     exit(1)
 
-ANYTHINGLLM_DOCS_FOLDER = Path(CONFIG.get("docs_folder", ""))
-INTAKE_FOLDER           = Path(CONFIG.get("vault_path", "")) / "00-intake"
+ACTIVE_PROFILE = CONFIG_DATA.get("active_profile", "Default")
+PROFILE = CONFIG_DATA.get("profiles", {}).get(ACTIVE_PROFILE, {})
 
-ANYTHINGLLM_URL         = CONFIG.get("anythingllm_url", "http://localhost:3001")
-API_KEY                 = CONFIG.get("api_key", "")
-WORKSPACE_SLUG          = CONFIG.get("workspace_slug", "")
+ANYTHINGLLM_DOCS_FOLDER = Path(PROFILE.get("docs_folder", ""))
+INTAKE_FOLDER           = Path(PROFILE.get("vault_path", "")) / "00-intake"
+
+ANYTHINGLLM_URL         = PROFILE.get("anythingllm_url", "http://localhost:3001")
+API_KEY                 = PROFILE.get("api_key", "")
+WORKSPACE_SLUG          = PROFILE.get("workspace_slug", "")
+
+# ... (The rest of your script remains exactly the same!)
 
 def delete_from_anythingllm(document_location: str):
     """Removes the document from the workspace and then deletes the file."""
